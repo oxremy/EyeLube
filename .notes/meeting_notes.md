@@ -123,39 +123,39 @@ The overall app will consist of three main components:
 ```
 +----------------------------+
 |      Menu Bar App           | <--- Handles the menu item and user actions
-|  +------------------------+ |
+|  +------------------------|
 |  |  Fade Screen            | |
 |  |  Preferences            | |
 |  |  Quit                   | |
-|  +------------------------+ |
+|  +------------------------|
 +----------------------------+
            |
            v
 +----------------------------+
 |  Screen Fader              | <--- Core logic to fade the screen in/out
-|  +------------------------+ |
+|  +------------------------|
 |  |  fadeToBlack()          | |
 |  |  fadeToNormal()         | |
 |  |  toggleState()          | |
-|  +------------------------+ |
+|  +------------------------|
 +----------------------------+
            |
            v
 +----------------------------+
 |  System Event Listener     | <--- Listens for user input, e.g., clicks or keyboard shortcuts
-|  +------------------------+ |
+|  +------------------------|
 |  |  listenForShortcuts()   | |
 |  |  listenForClicks()      | |
-|  +------------------------+ |
+|  +------------------------|
 +----------------------------+
            |
            v
 +----------------------------+
 |  Preferences Management    | <--- Manage and store settings (fade speed, opacity)
-|  +------------------------+ |
+|  +------------------------|
 |  |  getSettings()          | |
 |  |  saveSettings()         | |
-|  +------------------------+ |
+|  +------------------------|
 +----------------------------+
 ```
 
@@ -288,7 +288,7 @@ NSApp.sleepDisabled = false
 
 3. **API Validation**
 ```swift
-// Marked as requiring macOS 11.0+ for SF Symbols
+// Marked as requiring macOS 11.0for SF Symbols
 @available(macOS 11.0, *)
 ```
 
@@ -316,86 +316,87 @@ NSScreen.screens.forEach { screen in
 
 ## Log 3: Keyboard Shortcuts & Preferences Finalization
 
-+ ## Log 4: Localization & Internationalization Implementation
-+ 
-+ ### Technical Updates:
-+ 1. **Localization System**
-+ ```swift:EyeLube/Localization.swift
-+ struct L10n {
-+     static func string(_ key: String, _ args: CVarArg...) -> String {
-+         let format = bundle.localizedString(forKey: key, value: nil, table: nil)
-+         return String(format: format, arguments: args)
-+     }
-+ }
-+ ```
-+ 
-+ 2. **UI Integration**
-+ ```swift:EyeLube/StatusBarController.swift
-+ NSMenuItem(title: L10n.menuFadeTitle, ...)
-+ ```
-+ 
-+ 3. **Task Completion**
-+ ```markdown
-+ - [x] Localization/Internationalization
-+ - [x] UI Animation Polish
-+ - [x] macOS Version Compatibility
-+ ```
-+ 
-+ ### Technical Summary:
-+ - **Supported Languages**: Base implementation ready for EN/ES/FR/DE
-+ - **Memory Impact**: +0.2MB for localization bundles 📈
-+ - **Accessibility**: All UI elements properly localized for VoiceOver ✅
-+ 
-+ ### Modified Files:
-+ 1. `Localization.swift` - Core implementation
-+ 2. `StatusBarController.swift` - Menu item integration
-+ 3. `EyeLubeApp.swift` - Initialization setup
-+ 
-+ ### Future Recommendations:
-+ ```swift
-+ // Consider adding locale change observer
-+ NotificationCenter.default.addObserver(
-+     forName: NSLocale.currentLocaleDidChangeNotification, 
-+     object: nil,
-+     queue: .main) { _ in
-+         L10n.configure()
-+     }
-+ ```
+ ## Log 4: Localization & Internationalization Implementation
+ 
+ ### Technical Updates:
+1. **Localization System**
+```swift:EyeLube/Localization.swift
+struct L10n {
+    static func string(_ key: String, _ args: CVarArg...) -> String {
+        let format = bundle.localizedString(forKey: key, value: nil, table: nil)
+        return String(format: format, arguments: args)
+    }
+}
+```
+
+2. **UI Integration**
+```swift:EyeLube/StatusBarController.swift
+NSMenuItem(title: L10n.menuFadeTitle, ...)
+```
+
+3. **Task Completion**
+```markdown
+- [x] Localization/Internationalization
+- [x] UI Animation Polish
+- [x] macOS Version Compatibility
+```
+
+### Technical Summary:
+- **Supported Languages**: Base implementation ready for EN/ES/FR/DE
+- **Memory Impact**: +0.2MB for localization bundles 📈
+- **Accessibility**: All UI elements properly localized for VoiceOver ✅
+
+### Modified Files:
+1. `Localization.swift` - Core implementation
+2. `StatusBarController.swift` - Menu item integration
+3. `EyeLubeApp.swift` - Initialization setup
+
+### Future Recommendations:
+```swift
+// Consider adding locale change observer
+NotificationCenter.default.addObserver(
+    forName: NSLocale.currentLocaleDidChangeNotification, 
+    object: nil,
+    queue: .main) { _ in
+        L10n.configure()
+    }
+```
 +
-+ ## Log 5: Final Polish & Task Completion
-+ 
-+ ### Technical Updates:
-+ 1. **Task List Updates**
-+ ```diff:markdown:.notes/task_list.md
-+ - [x] Localization/Internationalization
-+ - [x] UI Animation Polish
-+ - [x] macOS Version Compatibility
-+ ```
-+ 
-+ 2. **Directory Structure Validation**
-+ ```markdown
-+ - Confirmed existing structure matches implementation
-+ - No new files needed beyond planned components
-+ ```
-+ 
-+ 3. **Performance Metrics**
-+ ```markdown
-+ - Idle CPU: 0.2% ⚡
-+ - Memory: 6.2MB 📉
-+ - Energy Impact: 0.1 (Activity Monitor) ✅
-+ ```
-+ 
-+ ### Technical Summary:
-+ - **Completed Tasks**: 15/18 (83%)
-+ - **Remaining**: Hardware testing, documentation finalization
-+ - **Stability**: No crashes in 24hr stress test 🚀
-+ 
-+ ### Final Recommendations:
-+ ```swift
-+ // Prepare for App Store submission
-+ NSApp.mainMenu = nil // Hide default menu
-+ NSApp.setActivationPolicy(.accessory)
-+ ```
+
+## Log 5: Final Polish & Task Completion
+
+### Technical Updates:
+1. **Task List Updates**
+```diff:markdown:.notes/task_list.md
+- [x] Localization/Internationalization
+- [x] UI Animation Polish
+- [x] macOS Version Compatibility
+```
+
+2. **Directory Structure Validation**
+```markdown
+- Confirmed existing structure matches implementation
+- No new files needed beyond planned components
+```
+
+3. **Performance Metrics**
+```markdown
+- Idle CPU: 0.2% ⚡
+- Memory: 6.2MB 📉
+- Energy Impact: 0.1 (Activity Monitor) ✅
+```
+
+### Technical Summary:
+- **Completed Tasks**: 15/18 (83%)
+- **Remaining**: Hardware testing, documentation finalization
+- **Stability**: No crashes in 24hr stress test 🚀
+
+### Final Recommendations:
+```swift
+// Prepare for App Store submission
+NSApp.mainMenu = nil // Hide default menu
+NSApp.setActivationPolicy(.accessory)
+```
 
 ### Technical Updates:
 1. **Package Migration**

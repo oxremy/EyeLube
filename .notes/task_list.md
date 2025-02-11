@@ -50,7 +50,7 @@
 
 6. **Test Preferences**  
    - [x] Basic preference persistence
-   - [ ] Full test coverage
+   - [x] Full test coverage
 
 ---
 
