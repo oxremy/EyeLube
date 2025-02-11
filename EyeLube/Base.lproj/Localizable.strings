@@ -1,0 +1,5 @@
+/* Menu Items */
+"menu.fade.title" = "Fade Screen";
+"menu.preferences" = "Preferences";
+"menu.quit" = "Quit";
+"prefs.window.title" = "EyeLube Settings"; 
