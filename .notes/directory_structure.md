@@ -1,1 +1,44 @@
-# Directory Structure
+# Project Directory Structure
+
+- EyeLubeUITests/
+  - EyeLubeUITestsLaunchTests.swift
+  - EyeLubeUITests.swift
+- EyeLubeTests/
+  - EyeLubeTests.swift
+  - PreferencesTests.swift
+- EyeLube.xcodeproj/
+  - project.pbxproj
+  - xcuserdata/
+    - jeremyknox.xcuserdatad/
+      - xcschemes/
+        - xcschememanagement.plist
+  - project.xcworkspace/
+    - contents.xcworkspacedata
+    - xcuserdata/
+      - jeremyknox.xcuserdatad/
+        - UserInterfaceState.xcuserstate
+    - xcshareddata/
+      - swiftpm/
+        - configuration/
+- EyeLube/
+  - Models/
+    - Preferences.swift
+  - EyeLubeApp.swift
+  - StatusBarController.swift
+  - ScreenFader.swift
+  - PreferencesStorage.swift
+  - PreferencesWindow.swift
+  - PreferencesWindowController.swift
+  - SystemPreferencesManager.swift
+  - Localization.swift
+  - EyeLube.entitlements
+  - ContentView.swift
+  - Assets.xcassets/
+    - Contents.json
+    - AppIcon.appiconset/
+      - Contents.json
+    - AccentColor.colorset/
+      - Contents.json
+  - Preview Content/
+    - Preview Assets.xcassets/
+      - Contents.json

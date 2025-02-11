@@ -43,7 +43,7 @@ The overall app will consist of three main components:
 
 1. **User Interface (UI)** – The macOS Menu Bar and any settings windows.
 2. **Core Functionality** – The logic behind the screen fading and other essential operations.
-3. **System Interactions** – Handling system events like screen overlay, keyboard shortcuts, etc.
+3. **System Interactions** – Handling system events like screen overlay, etc.
 
 ### **2. Components**
 
@@ -62,8 +62,7 @@ The overall app will consist of three main components:
         - **Adjustable Settings**: Fade duration and opacity level, which may be configurable by the user.
         
 #### **c. System Interaction Layer**
-- **System Event Listener**: A background service that listens for user input (e.g., clicks or keyboard shortcuts) and reacts accordingly.
-    - **Keyboard Shortcut Listener**: Listens for a specific shortcut (if defined) and triggers the fade action.
+- **System Event Listener**: A background service that listens for user input and reacts accordingly.
     - **Overlay Management**: A system-wide event listener that activates/deactivates the overlay (fading effect) and ensures it runs smoothly without conflicting with other apps.
 
 #### **d. Preferences Management**
@@ -81,9 +80,7 @@ The overall app will consist of three main components:
 2. **User Interaction**:
     - **Clicking the Menu Icon**:
         - When clicked, the menu appears with options.
-        - If "Fade Screen" is selected, the screen fades to black (or the opacity level set by the user).
-    - **Keyboard Shortcut**:
-        - A keyboard shortcut (configured in settings) can also trigger the fade without opening the Menu Bar.
+        - If "Fade Screen" is pressed, the screen fades to black (or the opacity level set by the user).
         
 3. **Screen Fade Action**:
     - The `Screen Fader` class is responsible for handling the fade-in and fade-out actions.
